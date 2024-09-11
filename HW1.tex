@@ -84,6 +84,75 @@
 		&= \frac{-i\cos(x)}{2}(e^{y}-e^{-y})+\frac{\sin(x)}{2}(e^{-y}+e^y)\\
 		& = \sin(x)\cosh(y) + i\cos(x)\sinh(y)
 	\end{split}\]
+	The real and imaginary parts are periodic in $x$, so for $z(x) = x + i\hat y$, we get an ellipse. As $\hat y$ increases $\cosh(\hat y)$ and $\sinh(\hat y)$ become roughly equal, and the resultant ellipse becomes more circular. The real and imaginary parts are exponential in $y$, with the real part approaching $\infty$ for $x\to \infty,-\infty$, while the imaginary component approaches $\infty$ when $y\to \infty$ and approaches $-\infty$ when $y\to -\infty$. If $z = re^{i\theta}$ describes a line through the origin, for a fixed $\theta$, we get a spiral that changes direction of rotation depending on if $y > 0$. 
+	
+	Let $f(z) = \cos(z)$ using the exponential formula for $\sin$ and letting $z = x+iy$ gives
+	\[\begin{split}
+		f(z) &= \frac{e^{iz}+e^{-iz}}{2}\\
+		&= \frac{e^{i(x+iy)}+e^{-i(x+iy)}}{2}\\
+		&= \frac{e^{ix}e^{-y} +e^{-ix}e^{y}}{2}\\
+		&= \frac{e^{-y}(\cos(x)+i\sin(x))+e^y(\cos(-x)+i\sin(-x))}{2}\\
+		&= \frac{e^{-y}(\cos(x)+i\sin(x))+e^y(\cos(x)-i\sin(x))}{2}\\
+		&= \frac{\cos(x)}{2}(e^{-y}+e^y)+\frac{i\sin(x)}{2}(e^{-y}-e^y)\\
+		&= \frac{\cos(x)}{2}(e^{y}+e^{-y})+\frac{i\sin(x)}{2}(e^{-y}+e^y)\\
+		& = \cos(x)\cosh(y) - i\sin(x)\sinh(y)
+	\end{split}\]
+	At infinity, the behavior is very similar to $sin(z)$, including the direction of rotation. 
 	\end{solution}	
 
+	\begin{solution}[Exercise 2.2]
+		Let $z - a = re^{i\theta}$ and $z-b = \rho e^{i\phi}$. Then,
+		\[\begin{split}
+			f(z) &= \sqrt{re^{i\theta}\rho e^{i\phi}}\\
+			&=\sqrt{r\rho}e^{i\theta /2} e^{i\phi /2}\\
+			&= \sqrt{r\rho} e^{\sfrac{i(\theta + \phi)}{2}}
+		\end{split}\]
+		If we traverse a path around $z = a$ which does not include $z = b$, $\theta = \theta +2\pi$ and $\phi = \phi$. Thus,
+		\[\begin{split}
+			f(z) &= \sqrt{r\rho} e^{\sfrac{i(\theta + 2\pi + \phi)}{2}}\\
+			&= \sqrt{r\rho} e^{\sfrac{i(\theta + \phi)}{2}}e^{i\pi}\\
+			&= -\sqrt{r\rho} e^{\sfrac{i(\theta + \phi)}{2}}.
+		\end{split}\]
+		Thus, we have a branch point at $z = a$. Similarly, if  we traverse a path around $z = b$ which does not include $z = a$, $\theta = \theta $ and $\phi = \phi +2\pi$. This gives,
+		\[\begin{split}
+			f(z) &= \sqrt{r\rho} e^{\sfrac{i(\theta + \phi + 2\pi)}{2}}\\
+			&= \sqrt{r\rho} e^{\sfrac{i(\theta + \phi)}{2}}e^{i\pi}\\
+			&= -\sqrt{r\rho} e^{\sfrac{i(\theta + \phi)}{2}}.
+		\end{split}\]
+		Therefore, we also have a branch point at $z = b$. Consider now $z = 1/z$. This gives
+		\[\begin{split}
+			f(1/z) &= \sqrt{(1/z -a)(1/z-b)}\\
+			&=\sqrt{\frac{1-za}{z}\frac{1-zb}{z}}\\
+			&=\sfrac{1}{z}\sqrt{(1-za)(1-zb)}
+		\end{split}\]
+		Since $z^{-1}$ is not multivalued, $z = \infty$ is not a branch point. Therefore, there is a single cut point between $z = a$ and $z = b$, that separates the positive and negative branches of $f(z) = \pm \sqrt{r\rho} e^{\sfrac{i(\theta + \phi)}{2}}$.
+		
+		For part (b),
+		\[\begin{split}
+			f(z) &= \ln\frac{z-1}{z-2}\\
+			&= \ln(z-1)- \ln(z-2).
+		\end{split}\]
+		Let $z - 1 = re^{i\theta}$ and $z-2 = \rho e^{i\phi}$. Then,
+		\[\begin{split}
+			f(z) &= \ln(re^{i\theta})- \ln(\rho e^{i\phi})\\
+			&= (\ln r + i\theta) - (ln\rho + i\phi)\\
+			&= ln(\sfrac{r}{\rho}) + i(\theta - \phi).
+		\end{split}\]
+		If we traverse a path around $z = 1$ which does not include $z = 2$, $\theta = \theta +2\pi$ and $\phi = \phi$. Thus,
+		\[\begin{split}
+			f(z) &= ln(\sfrac{r}{\rho}) + i((\theta +2\pi) - \phi)\\
+			 &= ln(\sfrac{r}{\rho}) + i(\theta - \phi) + i2\pi.
+		\end{split}\]
+		This shows that $z = 1$ is a branch point. Similarly, if  we traverse a path around $z = 2$ which does not include $z = 1$, $\theta = \theta $ and $\phi = \phi +2\pi$. This gives,
+		\[\begin{split}
+			f(z) &= ln(\sfrac{r}{\rho}) + i(\theta - (\phi + 2\pi)\\
+			&= ln(\sfrac{r}{\rho}) + i(\theta - \phi) - i2\pi.
+		\end{split}\]
+		This shows that $z = 2$ is also a branch point. To see if $\infty$ is a branch point consider 
+		\[\begin{split}
+			f(1/z) &= \ln\frac{1/z-1}{1/z-2}\\
+			&= \ln(1/z-1)- \ln(1/z-2).
+		\end{split}\]
+		It is clear that $z = 0$ will not be a branch point, so $z = 1,2$ are our only branch points. Therefore, the branch cut is some line between $z=1$ and $z=2$, which separates an infinite sheets in the imaginary plane that are separated by $i2\pi$ from each other. Touring around $z=1$ moves up the stack, and touring around $z=2$ moves down the stack. 
+	\end{solution}
 \end{document}
