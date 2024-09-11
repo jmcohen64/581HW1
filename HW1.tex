@@ -1,0 +1,89 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[top=.5in,textheight=9in]{geometry}
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage{enumerate}
+\usepackage{xfrac}
+
+
+% Everything after a % sign is commented out.
+% This is sometimes useful to write notes to yourself
+% or to add spacing in the tex file so that it is easier
+% to read.
+
+
+% Some useful `macros'
+% % % Feel free to define your own!
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+
+\newcommand{\cS}{\mathcal S}
+
+
+% Here is a pretty way to write down the problem
+\newtheorem{innerprob}{Problem}
+\newenvironment{prob}[1]
+{\renewcommand\theinnerprob{#1}\innerprob}
+{\endinnerprob}
+% Here is a pretty way to wrote down the solution
+\newenvironment{solution}
+{\renewcommand\qedsymbol{}\begin{proof}[Solution]}
+	{\end{proof}\bigskip}
+
+\setlength\parindent{0cm}
+\setlength\parskip{5pt plus 1pt minus 1pt}
+
+
+\title{Assignment \#1\\Math 581A}
+\author{
+	John Cohen
+}
+\date{September 10th 2024}
+
+
+
+
+
+
+
+
+
+\begin{document}
+	
+	\maketitle
+	
+\begin{solution}[Exercise 2.1]
+	Let $P_n(x) = a_0 + a_1x + \dotsc + a_nx^n$ be a polynomial of order $n$ with each $a_n \in \R$. If $\underline z \in \C$ is a root of $P_n(x)$, then $$P_n(x = \underline z) = a_0 + a_1\underline z + \dotsc + a_n\underline z^n = 0.$$ Now consider when $x = \underline z^*$: $$P_n(x = \underline z^*) = a_0 + a_1\underline z^* + \dotsc + a_n{\underline z^*}^n.$$ By Theorem 2.1.4, 
+	\[\begin{split}
+		P_n(x = \underline z^*) &= (P_n(x = \underline z))^*\\
+		&= 0^*\\
+		&= 0.
+	\end{split}\]
+	Therefore, $\underline z^*$ is also a root of $P_n(x)$. 
+\end{solution}
+
+\begin{solution}[Exercise 2.2]
+	Let $f(z) = e^z$. With the substitution $z = x + iy$,
+	\[\begin{split}
+		f(z) &= e^{x+iy}\\
+		&=e^xe^{iy}\\
+		&=e^x(\cos(y)+i\sin(y))\\
+		&= e^x\cos(y) +ie^x\sin(y).
+	\end{split}\]
+	Let $z(x) = x + i\hat y$ for some fixed $\hat y$. As $x \to \infty$, $f(z(x)) \to \infty$ and as $x \to -\infty$, $f(z(x)) \to 0$. Now let $z(y) = \hat x + iy$ for some fixed $\hat x$. Since $f(z(y))$ is periodic in $y$, $y\to \infty$ gives a circle with radius $e^{\hat x}$. Thus, if $z = re^{i\theta}$ describes a line through the origin, for a fixed $\theta$, we get a spiral.
+	
+	Let $f(z) = \sin(z)$ using the exponential formula for $\sin$ and letting $z = x+iy$ gives
+	\[\begin{split}
+		f(z) &= \frac{e^{iz}-e^{-iz}}{2i}\\
+		&= \frac{e^{i(x+iy)}-e^{-i(x+iy)}}{2i}\\
+		&= \frac{e^{ix}e^{-y} -e^{-ix}e^{y}}{2i}\\
+		&= \frac{e^{-y}(\cos(x)+i\sin(x))-e^y(\cos(-x)+i\sin(-x))}{2i}\\
+		&= \frac{e^{-y}(\cos(x)+i\sin(x))-e^y(\cos(x)-i\sin(x))}{2i}\\
+		&= \frac{\cos(x)}{2i}(e^{-y}-e^y)+\frac{i\sin(x)}{2i}(e^{-y}+e^y)\\
+		&= \frac{-i\cos(x)}{2}(e^{y}-e^{-y})+\frac{\sin(x)}{2}(e^{-y}+e^y)\\
+		& = \sin(x)\cosh(y) + i\cos(x)\sinh(y)
+	\end{split}\]
+	\end{solution}	
+
+\end{document}
